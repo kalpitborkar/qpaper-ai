@@ -55,13 +55,17 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Section</label>
-          <select name="section" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Sections</label>
+          <select id="sectionDropdown" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">Select Section</option>
             <option>1.1 Overview</option>
             <option>1.2 Importance</option>
             <option>2.1 Cell Wall</option>
           </select>
+
+          <div id="selectedSectionsContainer" class="flex flex-wrap gap-2 mt-4">
+            <!-- Bubbles will appear here -->
+          </div>
         </div>
       </div>
 
@@ -97,70 +101,37 @@
       </div>
 
       <!-- Step 4: Review -->
-        <div id="page-4" class="space-y-6 hidden">
+      <div id="page-4" class="space-y-6 hidden">
         <h3 class="text-2xl font-bold text-gray-800 text-center">🧾 Review Your Selections</h3>
 
         <div class="bg-white shadow-md rounded-xl overflow-hidden">
-            <table class="min-w-full table-auto text-sm text-left text-gray-700">
+          <table class="min-w-full table-auto text-sm text-left text-gray-700">
             <thead class="bg-blue-50 text-blue-700 font-semibold uppercase">
-                <tr>
+              <tr>
                 <th class="px-6 py-3 border-b border-blue-200">Category</th>
                 <th class="px-6 py-3 border-b border-blue-200">Selection</th>
-                </tr>
+              </tr>
             </thead>
             <tbody class="divide-y divide-gray-100 bg-white">
-                <tr>
-                <td class="px-6 py-4 font-medium">Grade</td>
-                <td class="px-6 py-4" id="review-grade">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Subject</td>
-                <td class="px-6 py-4" id="review-subject">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Chapter</td>
-                <td class="px-6 py-4" id="review-chapter">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Section</td>
-                <td class="px-6 py-4" id="review-section">—</td>
-                </tr>
-                <tr class="bg-gray-50">
-                <td colspan="2" class="px-6 py-4 text-blue-700 font-semibold uppercase text-xs tracking-wider">Questions Requested</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Single Correct MCQs</td>
-                <td class="px-6 py-4" id="review-mcqSingle">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Multiple Correct MCQs</td>
-                <td class="px-6 py-4" id="review-mcqMultiple">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">One Sentence Answers</td>
-                <td class="px-6 py-4" id="review-oneSentence">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Brief Answers</td>
-                <td class="px-6 py-4" id="review-brief">—</td>
-                </tr>
-                <tr>
-                <td class="px-6 py-4 font-medium">Detailed Answers</td>
-                <td class="px-6 py-4" id="review-detail">—</td>
-                </tr>
+              <tr><td class="px-6 py-4 font-medium">Grade</td><td class="px-6 py-4" id="review-grade">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Subject</td><td class="px-6 py-4" id="review-subject">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Chapter</td><td class="px-6 py-4" id="review-chapter">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Section</td><td class="px-6 py-4" id="review-section">—</td></tr>
+              <tr class="bg-gray-50"><td colspan="2" class="px-6 py-4 text-blue-700 font-semibold uppercase text-xs tracking-wider">Questions Requested</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Single Correct MCQs</td><td class="px-6 py-4" id="review-mcqSingle">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Multiple Correct MCQs</td><td class="px-6 py-4" id="review-mcqMultiple">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">One Sentence Answers</td><td class="px-6 py-4" id="review-oneSentence">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Brief Answers</td><td class="px-6 py-4" id="review-brief">—</td></tr>
+              <tr><td class="px-6 py-4 font-medium">Detailed Answers</td><td class="px-6 py-4" id="review-detail">—</td></tr>
             </tbody>
-            </table>
+          </table>
         </div>
-        </div>
+      </div>
 
       <!-- Navigation Buttons -->
       <div class="flex justify-between items-center pt-4 border-t mt-6">
-        <button id="backBtn" class="hidden bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition">
-          ← Back
-        </button>
-        <button id="nextBtn" class="ml-auto bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition">
-          Next →
-        </button>
+        <button id="backBtn" class="hidden bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition">← Back</button>
+        <button id="nextBtn" class="ml-auto bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition">Next →</button>
       </div>
     </div>
 
@@ -175,7 +146,6 @@
         grade: 'select[name="grade"]',
         subject: 'select[name="subject"]',
         chapter: 'select[name="chapter"]',
-        section: 'select[name="section"]',
         mcqSingle: 'input[name="mcqSingle"]',
         mcqMultiple: 'input[name="mcqMultiple"]',
         oneSentence: 'input[name="oneSentence"]',
@@ -183,11 +153,43 @@
         detail: 'input[name="detail"]'
       };
 
+      const sectionDropdown = document.getElementById("sectionDropdown");
+      const selectedSectionsContainer = document.getElementById("selectedSectionsContainer");
+      const selectedSections = new Set();
+
+      sectionDropdown.addEventListener("change", () => {
+        const selected = sectionDropdown.value;
+        if (selected && !selectedSections.has(selected)) {
+          selectedSections.add(selected);
+          renderSelectedSections();
+        }
+        sectionDropdown.selectedIndex = 0;
+      });
+
+      function renderSelectedSections() {
+        selectedSectionsContainer.innerHTML = "";
+        [...selectedSections].forEach(section => {
+          const bubble = document.createElement("div");
+          bubble.className = "flex items-center bg-blue-100 text-blue-700 rounded-full px-4 py-1 text-sm font-medium shadow-sm";
+          bubble.innerHTML = `
+            <span>${section}</span>
+            <button onclick="removeSection('${section}')" class="ml-2 text-blue-500 hover:text-red-500 font-bold">&times;</button>
+          `;
+          selectedSectionsContainer.appendChild(bubble);
+        });
+      }
+
+      function removeSection(section) {
+        selectedSections.delete(section);
+        renderSelectedSections();
+      }
+
       function populateReview() {
         for (const key in selectors) {
           const input = document.querySelector(selectors[key]);
           document.getElementById("review-" + key).textContent = input.value || "—";
         }
+        document.getElementById("review-section").textContent = [...selectedSections].join(", ") || "—";
       }
 
       function updatePage() {
@@ -200,14 +202,13 @@
       }
 
       nextBtn.addEventListener("click", () => {
-    if (currentPage < pages.length - 1) {
-        currentPage++;
-        updatePage();
-    } else {
-        window.location.href = "thank_you.html";
-    }
-    });
-
+        if (currentPage < pages.length - 1) {
+          currentPage++;
+          updatePage();
+        } else {
+          window.location.href = "thank_you.html";
+        }
+      });
 
       backBtn.addEventListener("click", () => {
         if (currentPage > 0) {
