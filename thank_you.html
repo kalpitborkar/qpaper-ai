@@ -5,24 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thank You - QPaper AI</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .fade-in {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .btn-gradient {
+      background-image: linear-gradient(to right, #2563eb, #1d4ed8);
+    }
+
+    .btn-gradient:hover {
+      background-image: linear-gradient(to right, #1e40af, #1e3a8a);
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-white min-h-screen flex items-center justify-center p-6">
-  <div class="text-center space-y-10">
-    <!-- Logo (glow removed) -->
-    <div class="text-6xl sm:text-7xl md:text-8xl font-extrabold text-blue-600 tracking-tight">
-      QPaper AI
+<body class="bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen flex items-center justify-center p-6">
+
+  <div class="text-center space-y-12 max-w-3xl mx-auto fade-in">
+    
+    <!-- Logo -->
+    <div class="text-6xl sm:text-7xl md:text-8xl font-extrabold text-blue-600 tracking-tight drop-shadow-sm">
+      QPaper <span class="text-gray-800">AI</span>
     </div>
 
     <!-- Thank You Message -->
     <div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">🎉 Thank You!</h1>
-      <p class="text-lg text-gray-600 max-w-xl mx-auto">Your syllabus has been successfully submitted. We're now crafting your custom question paper with precision and AI brilliance. You'll hear from us soon!</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">🎉 Thank You!</h1>
+      <p class="text-lg sm:text-xl text-gray-700 leading-relaxed px-4">
+        Your syllabus has been successfully submitted. We’re now generating your AI-powered question paper with precision. You’ll hear from us shortly!
+      </p>
     </div>
 
-    <!-- CTA / Button (optional) -->
-    <a href="index.html" class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
-      Return to Home
-    </a>
+    <!-- Call to Action Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-5 pt-2 px-4">
+      <a href="index.html" class="w-60 py-3 px-6 rounded-full text-white font-semibold shadow-lg transition-all duration-300 text-lg btn-gradient">
+        ⬅️ Return to Home
+      </a>
+      <a href="viewer.html" class="w-60 py-3 px-6 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold shadow-lg transition-all duration-300 text-lg">
+        📄 View Paper
+      </a>
+      <a href="dashboard.html" class="w-60 py-3 px-6 rounded-full bg-purple-500 hover:bg-purple-600 text-white font-semibold shadow-lg transition-all duration-300 text-lg">
+        📂 Go to Dashboard
+      </a>
+    </div>
+
+    <!-- Subtle Footer -->
+    <div class="text-sm text-gray-400 pt-8">
+      Made with ❤️ by QPaper AI Team
+    </div>
+
   </div>
+
 </body>
 </html>
