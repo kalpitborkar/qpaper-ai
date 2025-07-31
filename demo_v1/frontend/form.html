@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QPaper AI - Syllabus Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-10">
+    <div class="w-full max-w-3xl bg-white shadow-2xl rounded-3xl p-10 space-y-10 transition-all duration-300">
+      
+      <!-- Header -->
+      <div class="space-y-1 text-center">
+        <h1 class="text-4xl font-extrabold text-blue-600 tracking-tight">QPaper AI</h1>
+        <h2 class="text-2xl font-semibold text-gray-800">Syllabus Selection</h2>
+        <p class="text-sm text-gray-500">Follow the steps below to configure your paper</p>
+      </div>
+
+      <!-- Step 1 -->
+      <div id="page-1" class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Grade</label>
+          <select name="grade" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Grade</option>
+            <option>Grade 6</option><option>Grade 7</option><option>Grade 8</option>
+            <option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+          <select name="subject" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Subject</option>
+            <option>Biology</option><option>Chemistry</option><option>Physics</option>
+            <option>Mathematics</option><option>History</option><option>Geography</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="page-2" class="space-y-6 hidden">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Chapter</label>
+          <select name="chapter" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Chapter</option>
+            <option>Chapter 1: Introduction</option>
+            <option>Chapter 2: Cell Structure</option>
+            <option>Chapter 3: Photosynthesis</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Section</label>
+          <select name="section" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Section</option>
+            <option>1.1 Overview</option>
+            <option>1.2 Importance</option>
+            <option>2.1 Cell Wall</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="page-3" class="space-y-6 hidden">
+        <div>
+          <h3 class="text-lg font-semibold text-gray-800">Question Types and Counts</h3>
+          <p class="text-sm text-gray-500 mb-4">Enter how many of each question type you'd like.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Single Correct MCQs</label>
+              <input name="mcqSingle" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 5" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Multiple Correct MCQs</label>
+              <input name="mcqMultiple" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 3" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Answer in One Sentence</label>
+              <input name="oneSentence" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 4" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Answer in Brief</label>
+              <input name="brief" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 2" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Answer in Detail</label>
+              <input name="detail" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 1" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Review -->
+        <div id="page-4" class="space-y-6 hidden">
+        <h3 class="text-2xl font-bold text-gray-800 text-center">🧾 Review Your Selections</h3>
+
+        <div class="bg-white shadow-md rounded-xl overflow-hidden">
+            <table class="min-w-full table-auto text-sm text-left text-gray-700">
+            <thead class="bg-blue-50 text-blue-700 font-semibold uppercase">
+                <tr>
+                <th class="px-6 py-3 border-b border-blue-200">Category</th>
+                <th class="px-6 py-3 border-b border-blue-200">Selection</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 bg-white">
+                <tr>
+                <td class="px-6 py-4 font-medium">Grade</td>
+                <td class="px-6 py-4" id="review-grade">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Subject</td>
+                <td class="px-6 py-4" id="review-subject">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Chapter</td>
+                <td class="px-6 py-4" id="review-chapter">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Section</td>
+                <td class="px-6 py-4" id="review-section">—</td>
+                </tr>
+                <tr class="bg-gray-50">
+                <td colspan="2" class="px-6 py-4 text-blue-700 font-semibold uppercase text-xs tracking-wider">Questions Requested</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Single Correct MCQs</td>
+                <td class="px-6 py-4" id="review-mcqSingle">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Multiple Correct MCQs</td>
+                <td class="px-6 py-4" id="review-mcqMultiple">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">One Sentence Answers</td>
+                <td class="px-6 py-4" id="review-oneSentence">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Brief Answers</td>
+                <td class="px-6 py-4" id="review-brief">—</td>
+                </tr>
+                <tr>
+                <td class="px-6 py-4 font-medium">Detailed Answers</td>
+                <td class="px-6 py-4" id="review-detail">—</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between items-center pt-4 border-t mt-6">
+        <button id="backBtn" class="hidden bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition">
+          ← Back
+        </button>
+        <button id="nextBtn" class="ml-auto bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition">
+          Next →
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const pages = ["page-1", "page-2", "page-3", "page-4"];
+      let currentPage = 0;
+
+      const backBtn = document.getElementById("backBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      const selectors = {
+        grade: 'select[name="grade"]',
+        subject: 'select[name="subject"]',
+        chapter: 'select[name="chapter"]',
+        section: 'select[name="section"]',
+        mcqSingle: 'input[name="mcqSingle"]',
+        mcqMultiple: 'input[name="mcqMultiple"]',
+        oneSentence: 'input[name="oneSentence"]',
+        brief: 'input[name="brief"]',
+        detail: 'input[name="detail"]'
+      };
+
+      function populateReview() {
+        for (const key in selectors) {
+          const input = document.querySelector(selectors[key]);
+          document.getElementById("review-" + key).textContent = input.value || "—";
+        }
+      }
+
+      function updatePage() {
+        pages.forEach((id, index) => {
+          document.getElementById(id).classList.toggle("hidden", index !== currentPage);
+        });
+        backBtn.classList.toggle("hidden", currentPage === 0);
+        nextBtn.textContent = currentPage === pages.length - 1 ? "Submit" : "Next →";
+        if (currentPage === pages.length - 1) populateReview();
+      }
+
+      nextBtn.addEventListener("click", () => {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        updatePage();
+    } else {
+        window.location.href = "thank_you.html";
+    }
+    });
+
+
+      backBtn.addEventListener("click", () => {
+        if (currentPage > 0) {
+          currentPage--;
+          updatePage();
+        }
+      });
+
+      updatePage();
+    </script>
+  </body>
+</html>
