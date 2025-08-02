@@ -1,250 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QPaper AI - Syllabus Selection</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QPaper AI - Syllabus Selection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes subtleShine {
+      0% {
+        background-position: -200% 0;
       }
-      select:disabled {
-        background-color: #f9fafb;
-        cursor: not-allowed;
+
+      100% {
+        background-position: 200% 0;
       }
-    </style>
-  </head>
-  <body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-10">
-    <div class="w-full max-w-3xl bg-white shadow-2xl rounded-3xl p-10 space-y-10 transition-all duration-300">
-      
-      <!-- Header -->
-      <div class="space-y-1 text-center">
-        <h1 class="text-4xl font-extrabold text-blue-600 tracking-tight">QPaper AI</h1>
-        <h2 class="text-2xl font-semibold text-gray-800">Syllabus Selection</h2>
-        <p class="text-sm text-gray-500">Follow the steps below to configure your paper</p>
+    }
+
+    .animate-subtleShine {
+      background-size: 200% auto;
+      animation: subtleShine 5s linear infinite;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    select:disabled {
+      background-color: #f9fafb;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-10">
+  <div class="w-full max-w-3xl bg-white shadow-2xl rounded-3xl p-10 space-y-10 transition-all duration-300">
+
+    <!-- Header -->
+    <div class="space-y-1 text-center">
+      <h1 class="text-4xl font-extrabold text-blue-600 tracking-tight">QPaper AI</h1>
+      <h2 class="text-2xl font-semibold text-gray-800">Syllabus Selection</h2>
+      <p class="text-sm text-gray-500">Follow the steps below to configure your paper</p>
+    </div>
+
+    <!-- Ultra Modern Progress Bar -->
+    <div class="w-full mb-8">
+      <div class="flex justify-between items-center mb-2">
+        <span id="progressLabel" class="text-sm font-semibold text-gray-700">Step 1 of 4</span>
+        <span id="progressPercent" class="text-sm font-semibold text-gray-500">25%</span>
       </div>
-
-      <!-- Step 1 -->
-      <div id="page-1" class="space-y-6">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Grade</label>
-          <select name="grade" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">Select Grade</option>
-            <option>Grade 6</option><option>Grade 7</option><option>Grade 8</option>
-            <option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
-          </select>
+      <div class="w-full relative h-4 bg-gray-200/60 rounded-full overflow-hidden">
+        <!-- Background Subtle Shine -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/40 to-transparent opacity-30 animate-subtleShine">
         </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-          <select name="subject" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">Select Subject</option>
-            <option>Biology</option><option>Chemistry</option><option>Physics</option>
-            <option>Mathematics</option><option>History</option><option>Geography</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div id="page-2" class="space-y-6 hidden">
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Chapter</label>
-          <select name="chapter" id="chapterDropdown" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">Select Chapter</option>
-            <option value="1">Chapter 1: Introduction</option>
-            <option value="2">Chapter 2: Cell Structure</option>
-            <option value="3">Chapter 3: Photosynthesis</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Sections</label>
-          <select id="sectionDropdown" class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
-            <option value="">Select Chapter First</option>
-          </select>
-
-          <div id="selectedSectionsContainer" class="flex flex-wrap gap-2 mt-4">
-            <!-- Bubbles will appear here -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div id="page-3" class="space-y-6 hidden">
-        <div>
-          <h3 class="text-lg font-semibold text-gray-800">Question Types and Counts</h3>
-          <p class="text-sm text-gray-500 mb-4">Enter how many of each question type you'd like.</p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Single Correct MCQs</label>
-              <input name="mcqSingle" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 5" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Multiple Correct MCQs</label>
-              <input name="mcqMultiple" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 3" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Answer in One Sentence</label>
-              <input name="oneSentence" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 4" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Answer in Brief</label>
-              <input name="brief" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 2" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Answer in Detail</label>
-              <input name="detail" type="number" min="0" class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 1" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 4: Review -->
-      <div id="page-4" class="space-y-6 hidden">
-        <h3 class="text-2xl font-bold text-gray-800 text-center">🧾 Review Your Selections</h3>
-        <div class="bg-white shadow-md rounded-xl overflow-hidden">
-          <table class="min-w-full table-auto text-sm text-left text-gray-700">
-            <thead class="bg-blue-50 text-blue-700 font-semibold uppercase">
-              <tr>
-                <th class="px-6 py-3 border-b border-blue-200">Category</th>
-                <th class="px-6 py-3 border-b border-blue-200">Selection</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100 bg-white">
-              <tr><td class="px-6 py-4 font-medium">Grade</td><td class="px-6 py-4" id="review-grade">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Subject</td><td class="px-6 py-4" id="review-subject">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Chapter</td><td class="px-6 py-4" id="review-chapter">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Section</td><td class="px-6 py-4" id="review-section">—</td></tr>
-              <tr class="bg-gray-50"><td colspan="2" class="px-6 py-4 text-blue-700 font-semibold uppercase text-xs tracking-wider">Questions Requested</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Single Correct MCQs</td><td class="px-6 py-4" id="review-mcqSingle">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Multiple Correct MCQs</td><td class="px-6 py-4" id="review-mcqMultiple">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">One Sentence Answers</td><td class="px-6 py-4" id="review-oneSentence">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Brief Answers</td><td class="px-6 py-4" id="review-brief">—</td></tr>
-              <tr><td class="px-6 py-4 font-medium">Detailed Answers</td><td class="px-6 py-4" id="review-detail">—</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Navigation Buttons -->
-      <div class="flex justify-between items-center pt-4 border-t mt-6">
-        <button id="backBtn" class="hidden bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition">← Back</button>
-        <button id="nextBtn" class="ml-auto bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition">Next →</button>
+        <!-- Progress Fill -->
+        <div id="progressBar"
+          class="h-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-500 ease-in-out"
+          style="width: 25%;"></div>
       </div>
     </div>
 
-    <script>
-      const pages = ["page-1", "page-2", "page-3", "page-4"];
-      let currentPage = 0;
 
-      const backBtn = document.getElementById("backBtn");
-      const nextBtn = document.getElementById("nextBtn");
+    <!-- Step 1 -->
+    <div id="page-1" class="space-y-6">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Grade</label>
+        <select name="grade"
+          class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Select Grade</option>
+          <option>Grade 6</option>
+          <option>Grade 7</option>
+          <option>Grade 8</option>
+          <option>Grade 9</option>
+          <option>Grade 10</option>
+          <option>Grade 11</option>
+          <option>Grade 12</option>
+        </select>
+      </div>
 
-      const selectors = {
-        grade: 'select[name="grade"]',
-        subject: 'select[name="subject"]',
-        chapter: 'select[name="chapter"]',
-        mcqSingle: 'input[name="mcqSingle"]',
-        mcqMultiple: 'input[name="mcqMultiple"]',
-        oneSentence: 'input[name="oneSentence"]',
-        brief: 'input[name="brief"]',
-        detail: 'input[name="detail"]'
-      };
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+        <select name="subject"
+          class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Select Subject</option>
+          <option>Biology</option>
+          <option>Chemistry</option>
+          <option>Physics</option>
+          <option>Mathematics</option>
+          <option>History</option>
+          <option>Geography</option>
+        </select>
+      </div>
+    </div>
 
-      const chapterDropdown = document.getElementById("chapterDropdown");
-      const sectionDropdown = document.getElementById("sectionDropdown");
-      const selectedSectionsContainer = document.getElementById("selectedSectionsContainer");
-      const selectedSections = new Set();
+    <!-- Step 2 -->
+    <div id="page-2" class="space-y-6 hidden">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Chapter</label>
+        <select name="chapter" id="chapterDropdown"
+          class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Select Chapter</option>
+          <option value="1">Chapter 1: Introduction</option>
+          <option value="2">Chapter 2: Cell Structure</option>
+          <option value="3">Chapter 3: Photosynthesis</option>
+        </select>
+      </div>
 
-      const sectionMap = {
-        "1": ["1.1 Overview", "1.2 Importance"],
-        "2": ["2.1 Cell Wall", "2.2 Nucleus"],
-        "3": ["3.1 Light Reaction", "3.2 Dark Reaction"]
-      };
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Sections</label>
+        <select id="sectionDropdown"
+          class="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          disabled>
+          <option value="">Select Chapter First</option>
+        </select>
 
-      chapterDropdown.addEventListener("change", () => {
-        const selectedChapter = chapterDropdown.value;
-        sectionDropdown.innerHTML = '<option value="">Select Section</option>';
-        selectedSections.clear();
-        selectedSectionsContainer.innerHTML = "";
+        <div id="selectedSectionsContainer" class="flex flex-wrap gap-2 mt-4">
+          <!-- Bubbles will appear here -->
+        </div>
+      </div>
+    </div>
 
-        if (sectionMap[selectedChapter]) {
-          sectionMap[selectedChapter].forEach(sec => {
-            const opt = document.createElement("option");
-            opt.value = sec;
-            opt.textContent = sec;
-            sectionDropdown.appendChild(opt);
-          });
-          sectionDropdown.disabled = false;
-        } else {
-          sectionDropdown.disabled = true;
-          sectionDropdown.innerHTML = '<option value="">Select Chapter First</option>';
+    <!-- Step 3 -->
+    <div id="page-3" class="space-y-6 hidden">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800">Question Types and Counts</h3>
+        <p class="text-sm text-gray-500 mb-4">Enter how many of each question type you'd like.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Single Correct MCQs</label>
+            <input name="mcqSingle" type="number" min="0"
+              class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. 5" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Multiple Correct MCQs</label>
+            <input name="mcqMultiple" type="number" min="0"
+              class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. 3" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Answer in One Sentence</label>
+            <input name="oneSentence" type="number" min="0"
+              class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. 4" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Answer in Brief</label>
+            <input name="brief" type="number" min="0"
+              class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. 2" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Answer in Detail</label>
+            <input name="detail" type="number" min="0"
+              class="mt-1 w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="e.g. 1" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Review -->
+    <div id="page-4" class="space-y-6 hidden">
+      <h3 class="text-2xl font-bold text-gray-800 text-center">🧾 Review Your Selections</h3>
+      <div class="bg-white shadow-md rounded-xl p-6 space-y-6">
+
+        <!-- General Selections -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+          <!-- Grade -->
+          <div class="bg-gray-50 rounded-lg p-3 shadow-sm hover:shadow-md transition duration-200 text-center">
+            <p class="text-xs uppercase text-gray-500 tracking-wider mb-1">Grade</p>
+            <p id="review-grade" class="text-lg font-semibold text-gray-800">—</p>
+          </div>
+
+          <!-- Subject -->
+          <div class="bg-gray-50 rounded-lg p-3 shadow-sm hover:shadow-md transition duration-200 text-center">
+            <p class="text-xs uppercase text-gray-500 tracking-wider mb-1">Subject</p>
+            <p id="review-subject" class="text-lg font-semibold text-gray-800">—</p>
+          </div>
+
+          <!-- Chapter -->
+          <div class="bg-gray-50 rounded-lg p-3 shadow-sm hover:shadow-md transition duration-200 text-center">
+            <p class="text-xs uppercase text-gray-500 tracking-wider mb-1">Chapter</p>
+            <p id="review-chapter" class="text-lg font-semibold text-gray-800">—</p>
+          </div>
+
+          <!-- Sections (Full Width Row) -->
+          <<!-- Sections (Full Width Row as Bubble Pills Stack) -->
+            <div
+              class="bg-gray-50 rounded-lg p-4 shadow-sm hover:shadow-md transition duration-200 col-span-1 sm:col-span-3">
+              <p class="text-xs uppercase text-gray-500 tracking-wider mb-4">Sections</p>
+              <div id="review-section" class="flex flex-col gap-3">
+                <span
+                  class="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-4 py-2 rounded-full w-full">
+                  6.1.1 Epidermal Tissue System
+                </span>
+                <span
+                  class="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-4 py-2 rounded-full w-full">
+                  6.2.1 Dicotyledonous Root
+                </span>
+                <span
+                  class="inline-flex items-center bg-blue-100 text-blue-700 text-sm font-medium px-4 py-2 rounded-full w-full">
+                  6.3.1 The Vascular Tissue System
+                </span>
+              </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <!-- Divider for Questions Requested -->
+        <div class="flex items-center justify-between">
+          <h4 class="text-sm font-bold text-blue-700 uppercase tracking-wider">Questions Requested</h4>
+          <div class="flex-grow border-t border-gray-200 ml-4"></div>
+        </div>
+
+        <!-- Questions Selection -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+            <span class="text-gray-700 font-medium">Single Correct MCQs</span>
+            <span id="review-mcqSingle"
+              class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">—</span>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+            <span class="text-gray-700 font-medium">Multiple Correct MCQs</span>
+            <span id="review-mcqMultiple"
+              class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">—</span>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+            <span class="text-gray-700 font-medium">One Sentence Answers</span>
+            <span id="review-oneSentence"
+              class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">—</span>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+            <span class="text-gray-700 font-medium">Brief Answers</span>
+            <span id="review-brief"
+              class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">—</span>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+            <span class="text-gray-700 font-medium">Detailed Answers</span>
+            <span id="review-detail"
+              class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">—</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center pt-4 border-t mt-6">
+      <button id="backBtn"
+        class="hidden bg-gray-100 text-gray-700 font-medium py-2 px-5 rounded-lg hover:bg-gray-200 transition">←
+        Back</button>
+      <button id="nextBtn"
+        class="ml-auto bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition">Next
+        →</button>
+    </div>
+  </div>
+
+  <script>
+    const pages = ["page-1", "page-2", "page-3", "page-4"];
+    let currentPage = 0;
+
+    const backBtn = document.getElementById("backBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const selectors = {
+      grade: 'select[name="grade"]',
+      subject: 'select[name="subject"]',
+      chapter: 'select[name="chapter"]',
+      mcqSingle: 'input[name="mcqSingle"]',
+      mcqMultiple: 'input[name="mcqMultiple"]',
+      oneSentence: 'input[name="oneSentence"]',
+      brief: 'input[name="brief"]',
+      detail: 'input[name="detail"]'
+    };
+
+    const chapterDropdown = document.getElementById("chapterDropdown");
+    const sectionDropdown = document.getElementById("sectionDropdown");
+    const selectedSectionsContainer = document.getElementById("selectedSectionsContainer");
+    const selectedSections = new Set();
+
+    const subjectChapterSectionMap = {
+      Biology: {
+        "1": { title: "The Living World", sections: [] },
+        "2": { title: "Biological Classification", sections: [] },
+        "3": { title: "Plant Kingdom", sections: [] },
+        "4": { title: "Animal Kingdom", sections: [] },
+        "5": { title: "Morphology of Flowering Plants", sections: [] },
+        "6": {
+          title: "Anatomy of Flowering Plants", sections: [
+            "6.1.1 Epidermal Tissue System",
+            "6.1.2 The Ground Tissue System",
+            "6.1.3 The Vascular Tissue System",
+            "6.2.1 Dicotyledonous Root",
+            "6.2.2 Monocotyledonous Root",
+            "6.2.3 Dicotyledonous Stem",
+            "6.2.4 Monocotyledonous Stem",
+            "6.2.5 Dorsiventral (Dicotyledonous) Leaf",
+            "6.2.6 Isobilateral (Monocotyledonous) Leaf"
+          ]
+        },
+        "7": { title: "Structural Organisation in Animals", sections: [] },
+        "8": { title: "Cell: The Unit of Life", sections: [] },
+        "9": { title: "Biomolecules", sections: [] },
+        "10": { title: "Cell Cycle and Cell Division", sections: [] },
+        "11": { title: "Photosynthesis in Higher Plants", sections: [] },
+        "12": { title: "Respiration in Plants", sections: [] },
+        "13": { title: "Plant Growth and Development", sections: [] },
+        "14": { title: "Breathing and Exchange of Gases", sections: [] },
+        "15": { title: "Body Fluids and Circulation", sections: [] },
+        "16": { title: "Excretory Products and Their Elimination", sections: [] },
+        "17": { title: "Locomotion and Movement", sections: [] },
+        "18": { title: "Neural Control and Coordination", sections: [] },
+        "19": { title: "Chemical Coordination and Integration", sections: [] }
+      },
+
+
+      Chemistry: {
+        "1": { title: "Atomic Structure", sections: ["1.1 Dalton’s Theory", "1.2 Rutherford Model"] },
+        "2": { title: "Chemical Bonding", sections: ["2.1 Ionic Bonds", "2.2 Covalent Bonds"] }
+      }
+      // Add more subjects and chapters here
+    };
+
+    const subjectDropdown = document.querySelector(selectors.subject);
+
+    subjectDropdown.addEventListener("change", () => {
+      const selectedSubject = subjectDropdown.value;
+      chapterDropdown.innerHTML = '<option value="">Select Chapter</option>';
+      sectionDropdown.innerHTML = '<option value="">Select Chapter First</option>';
+      selectedSections.clear();
+      selectedSectionsContainer.innerHTML = "";
+      sectionDropdown.disabled = true;
+
+      if (subjectChapterSectionMap[selectedSubject]) {
+        const chapters = subjectChapterSectionMap[selectedSubject];
+        for (const chapterNum in chapters) {
+          const option = document.createElement("option");
+          option.value = chapterNum;
+          option.textContent = `Chapter ${chapterNum}: ${chapters[chapterNum].title}`;
+          chapterDropdown.appendChild(option);
         }
-      });
+        chapterDropdown.disabled = false;
+      } else {
+        chapterDropdown.disabled = true;
+      }
+    });
 
-      sectionDropdown.addEventListener("change", () => {
-        const selected = sectionDropdown.value;
-        if (selected && !selectedSections.has(selected)) {
-          selectedSections.add(selected);
-          renderSelectedSections();
-        }
-        sectionDropdown.selectedIndex = 0;
-      });
+    chapterDropdown.addEventListener("change", () => {
+      const selectedSubject = subjectDropdown.value;
+      const selectedChapter = chapterDropdown.value;
 
-      function renderSelectedSections() {
-        selectedSectionsContainer.innerHTML = "";
-        [...selectedSections].forEach(section => {
-          const bubble = document.createElement("div");
-          bubble.className = "flex items-center bg-blue-100 text-blue-700 rounded-full px-4 py-1 text-sm font-medium shadow-sm";
-          bubble.innerHTML = `
+      sectionDropdown.innerHTML = '<option value="">Select Section</option>';
+      selectedSections.clear();
+      selectedSectionsContainer.innerHTML = "";
+
+      if (subjectChapterSectionMap[selectedSubject] && subjectChapterSectionMap[selectedSubject][selectedChapter]) {
+        const sections = subjectChapterSectionMap[selectedSubject][selectedChapter].sections;
+        sections.forEach(sec => {
+          const opt = document.createElement("option");
+          opt.value = sec;
+          opt.textContent = sec;
+          sectionDropdown.appendChild(opt);
+        });
+        sectionDropdown.disabled = false;
+      } else {
+        sectionDropdown.disabled = true;
+        sectionDropdown.innerHTML = '<option value="">Select Chapter First</option>';
+      }
+    });
+
+
+    sectionDropdown.addEventListener("change", () => {
+      const selected = sectionDropdown.value;
+      if (selected && !selectedSections.has(selected)) {
+        selectedSections.add(selected);
+        renderSelectedSections();
+      }
+      sectionDropdown.selectedIndex = 0;
+    });
+
+    function renderSelectedSections() {
+      selectedSectionsContainer.innerHTML = "";
+      [...selectedSections].forEach(section => {
+        const bubble = document.createElement("div");
+        bubble.className = "flex items-center bg-blue-100 text-blue-700 rounded-full px-4 py-1 text-sm font-medium shadow-sm";
+        bubble.innerHTML = `
             <span>${section}</span>
             <button onclick="removeSection('${section}')" class="ml-2 text-blue-500 hover:text-red-500 font-bold">&times;</button>
           `;
-          selectedSectionsContainer.appendChild(bubble);
-        });
-      }
-
-      function removeSection(section) {
-        selectedSections.delete(section);
-        renderSelectedSections();
-      }
-
-      function populateReview() {
-        for (const key in selectors) {
-          const input = document.querySelector(selectors[key]);
-          document.getElementById("review-" + key).textContent = input.value || "—";
-        }
-        document.getElementById("review-section").textContent = [...selectedSections].join(", ") || "—";
-      }
-
-      function updatePage() {
-        pages.forEach((id, index) => {
-          document.getElementById(id).classList.toggle("hidden", index !== currentPage);
-        });
-        backBtn.classList.toggle("hidden", currentPage === 0);
-        nextBtn.textContent = currentPage === pages.length - 1 ? "Submit" : "Next →";
-        if (currentPage === pages.length - 1) populateReview();
-      }
-
-      nextBtn.addEventListener("click", () => {
-        if (currentPage < pages.length - 1) {
-          currentPage++;
-          updatePage();
-        } else {
-          window.location.href = "thank_you.html";
-        }
+        selectedSectionsContainer.appendChild(bubble);
       });
+    }
 
-      backBtn.addEventListener("click", () => {
-        if (currentPage > 0) {
-          currentPage--;
-          updatePage();
-        }
+    function removeSection(section) {
+      selectedSections.delete(section);
+      renderSelectedSections();
+    }
+
+    function populateReview() {
+      for (const key in selectors) {
+        const input = document.querySelector(selectors[key]);
+        document.getElementById("review-" + key).textContent = input.value || "—";
+      }
+      document.getElementById("review-section").textContent = [...selectedSections].join(", ") || "—";
+    }
+
+    function updatePage() {
+      pages.forEach((id, index) => {
+        document.getElementById(id).classList.toggle("hidden", index !== currentPage);
       });
+      backBtn.classList.toggle("hidden", currentPage === 0);
+      nextBtn.textContent = currentPage === pages.length - 1 ? "Submit" : "Next →";
+      if (currentPage === pages.length - 1) populateReview();
+    }
 
-      updatePage();
-    </script>
-  </body>
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updatePage();
+      } else {
+        // Collect form data
+        const data = collectFormData();
+        const json = JSON.stringify(data, null, 2);
+
+        // Create and trigger download
+        const blob = new Blob([json], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "qpaper_config.json";
+        a.click();
+        URL.revokeObjectURL(url);
+
+        // Then optionally redirect
+        window.location.href = "thank_you.html";
+      }
+    });
+
+    backBtn.addEventListener("click", () => {
+      if (currentPage > 0) {
+        currentPage--;
+        updatePage();
+      }
+    });
+
+    updatePage();
+
+    function collectFormData() {
+      return {
+        grade: document.querySelector(selectors.grade).value,
+        subject: document.querySelector(selectors.subject).value,
+        chapter: document.querySelector(selectors.chapter).value,
+        sections: [...selectedSections],
+        mcqSingle: document.querySelector(selectors.mcqSingle).value,
+        mcqMultiple: document.querySelector(selectors.mcqMultiple).value,
+        oneSentence: document.querySelector(selectors.oneSentence).value,
+        brief: document.querySelector(selectors.brief).value,
+        detail: document.querySelector(selectors.detail).value
+      };
+    }
+
+    function updatePage() {
+      pages.forEach((id, index) => {
+        document.getElementById(id).classList.toggle("hidden", index !== currentPage);
+      });
+      backBtn.classList.toggle("hidden", currentPage === 0);
+      nextBtn.textContent = currentPage === pages.length - 1 ? "Submit" : "Next →";
+      if (currentPage === pages.length - 1) populateReview();
+
+      const progressPercent = Math.round(((currentPage + 1) / pages.length) * 100);
+      document.getElementById("progressBar").style.width = `${progressPercent}%`;
+      document.getElementById("progressLabel").textContent = `Step ${currentPage + 1} of ${pages.length}`;
+      document.getElementById("progressPercent").textContent = `${progressPercent}%`;
+    }
+
+  </script>
+</body>
+
 </html>
