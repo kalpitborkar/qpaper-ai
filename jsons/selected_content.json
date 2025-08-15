@@ -1,0 +1,23 @@
+[
+        {
+          "section_number": "6.1.1",
+          "section_title": "Epidermal Tissue System",
+          "content": "The epidermal tissue system forms the outer-most covering of the whole plant body and comprises epidermal cells, stomata and the epidermal appendages – the trichomes and hairs. The epidermis is the outermost layer of the primary plant body. It is made up of elongated, compactly arranged cells, which form a continuous layer. Epidermis is usually singlelayered. Epidermal cells are parenchymatous with a small amount of cytoplasm lining the cell wall and a large vacuole. The outside of the epidermis is often covered with a waxy thick layer called the cuticle which prevents the loss of water. Cuticle is absent in roots. Stomata are structures present in the epidermis of leaves. Stomata regulate the process of transpiration and gaseous exchange. Each stoma is composed of two beanshaped cells known as guard cells which enclose stomatal pore. In grasses, the guard cells are dumb-bell shaped. The outer walls of guard cells (away from the stomatal pore) are thin and the inner walls (towards the stomatal pore) are highly thickened. The guard cells possess chloroplasts and regulate the opening and closing of stomata. Sometimes, a few epidermal cells, in the vicinity of the guard cells become specialised in their shape and size and are known as subsidiary cells. The stomatal aperture, guard cells and the surrounding subsidiary cells are together called stomatal apparatus (Figure 6.1). The cells of epidermis bear a number of hairs. The root hairs are unicellular elongations of the epidermal cells and help absorb water and minerals from the soil. On the stem the epidermal hairs are called trichomes. The trichomes in the shoot system are usually multicellular. They may be branched or unbranched and soft or stiff. They may even be secretory. The trichomes help in preventing water loss due to transpiration.",
+          "figures": [
+            {
+              "figure_number": "6.1",
+              "caption": "Stomata with bean-shaped and dumb-bell shaped guard cells"
+            }
+          ]
+        },
+        {
+          "section_number": "6.1.2",
+          "section_title": "The Ground Tissue System",
+          "content": "All tissues except epidermis and vascular bundles constitute the ground tissue. It consists of simple tissues such as parenchyma, collenchyma and sclerenchyma. Parenchymatous cells are usually present in cortex, pericycle, pith and medullary rays, in the primary stems and roots. In leaves, the ground tissue consists of thin-walled chloroplast containing cells and is called mesophyll."
+        },
+        {
+          "section_number": "6.1.3",
+          "section_title": "The Vascular Tissue System",
+          "content": "The vascular system consists of complex tissues, the phloem and the xylem.The xylem and phloem together constitute vascular bundles (Figure 6.2). In dicotyledonous stems, cambium is present between phloem and xylem. Such vascular bundles because of the presence of cambium possess the ability to form secondary xylem and phloem tissues, and hence are called open vascular bundles. In the monocotyledons, the vascular bundles have no cambium present in them. Hence, since they do not form secondary tissues they are referred to as closed. When xylem and phloem within a vascular bundle are arranged in an alternate manner along the different radii, the arrangement is called radial such as in roots. In conjoint type of vascular bundles, the xylem and phloem are jointly situated along the same radius of vascular bundles. Such vascular bundles are common in stems and leaves. The conjoint vascular bundles usually have the phloem located only on the outer side of xylem."
+        }
+      ]

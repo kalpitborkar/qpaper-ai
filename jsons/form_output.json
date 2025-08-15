@@ -1,0 +1,16 @@
+{
+  "grade": "Grade 11",
+  "subject": "Biology",
+  "chapter": "6",
+  "sections": [
+    "6.2.1 Dicotyledonous Root",
+    "6.2.2 Monocotyledonous Root",
+    "6.2.3 Dicotyledonous Stem"
+  ],
+  "mcqSingle": "5",
+  "mcqMultiple": "5",
+  "oneSentence": "3",
+  "brief": "2",
+  "detail": "1",
+  "diffculty": "7"
+}
