@@ -160,7 +160,6 @@ def add_mcq(qs):
         bg_color = colors.HexColor("#F9F9F9") if bg_toggle else colors.white
         marks_text = f"({q.get('marks', '')} marks)" if q.get('marks') else ""
         
-        # Question text and marks
         question_table = Table([
             [Paragraph(f"{q_number}. {q['question']}", styles['Question']),
              Paragraph(marks_text, styles['MarksRight'])]
@@ -171,7 +170,6 @@ def add_mcq(qs):
         ]))
         block = [question_table]
 
-        # Options
         labels = ["A", "B", "C", "D", "E", "F"]
         opts = [f"({labels[i]}) {o}" for i, o in enumerate(q['options'].values())]
         col_count = 2 if len(opts) <= 4 else 3
@@ -187,19 +185,27 @@ def add_mcq(qs):
         ]))
         block.append(opt_table)
 
-        # Handle answers (single or multiple correct)
         ans_text = ""
-        if "answers" in q:  
-            # If answers dict exists, show letter + text
+        if "answers" in q:
             ans_text = ", ".join(f"{k}: {v}" for k, v in q["answers"].items())
         elif "correct_options" in q:
-            # Multiple correct but without answers dict
             ans_text = ", ".join(q["correct_options"])
         elif "correct_option" in q:
-            # Single correct
             ans_text = q["correct_option"]
 
         block.append(Paragraph(f"Answer: {ans_text}", styles['Answer']))
+
+        # Add explanation if provided
+        if q.get("explanation"):
+            exp_table = Table([[Paragraph(f"<b>Explanation:</b><br/>{q['explanation']}", styles['Instruction'])]],
+                            colWidths=[doc.width])
+            exp_table.setStyle(TableStyle([
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#003366")),
+                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#E6F0FF")),
+                ('INNERPADDING', (0, 0), (-1, -1), 6),
+            ]))
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(exp_table)
 
         block.append(Spacer(1, 0.12 * inch))
         elements.append(KeepTogether(block))
@@ -213,6 +219,8 @@ def add_written(qs, lines=2):
     for q in qs:
         bg_color = colors.HexColor("#F9F9F9") if bg_toggle else colors.white
         marks_text = f"({q.get('marks', '')} marks)" if q.get('marks') else ""
+        
+        # Question row
         question_table = Table([
             [Paragraph(f"{q_number}. {q['question']}", styles['Question']),
              Paragraph(marks_text, styles['MarksRight'])]
@@ -223,6 +231,7 @@ def add_written(qs, lines=2):
         ]))
         block = [question_table]
 
+        # Answer lines for student copy
         for _ in range(lines):
             block.append(Spacer(1, 0.25 * inch))
             block.append(Table([[""]], colWidths=[doc.width],
@@ -231,17 +240,45 @@ def add_written(qs, lines=2):
                                    ('LINESTYLE', (0, 0), (-1, -1), 'dotted')
                                ])))
 
-        # Show answer immediately after
+        # Answer text (teacher copy)
         ans = q.get("answer")
         if isinstance(ans, list):
             ans = ", ".join(str(a) for a in ans)
         block.append(Spacer(1, 0.1 * inch))
         block.append(Paragraph(f"Answer: {ans}", styles['Answer']))
 
+        # Key Points block
+        if q.get("key_points"):
+            key_points_text = "<br/>".join([f"• {kp}" for kp in q["key_points"]])
+            kp_table = Table([[Paragraph(f"<b>Key Points:</b><br/>{key_points_text}", styles['Instruction'])]],
+                             colWidths=[doc.width])
+            kp_table.setStyle(TableStyle([
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#003366")),
+                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#E6F0FF")),
+                ('INNERPADDING', (0, 0), (-1, -1), 6),
+            ]))
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(kp_table)
+
+        # Explanation block
+        if q.get("explanation"):
+            exp_table = Table([[Paragraph(f"<b>Explanation:</b><br/>{q['explanation']}", styles['Instruction'])]],
+                              colWidths=[doc.width])
+            exp_table.setStyle(TableStyle([
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#003366")),
+                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#E6F0FF")),
+                ('INNERPADDING', (0, 0), (-1, -1), 6),
+            ]))
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(exp_table)
+
         block.append(Spacer(1, 0.15 * inch))
         elements.append(KeepTogether(block))
         bg_toggle = not bg_toggle
         q_number += 1
+
+
+
 
 # -------- Build Sections --------
 if "single_correct_mcq" in data:
