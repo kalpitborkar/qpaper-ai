@@ -1,0 +1,311 @@
+{
+  "single_correct_mcq": [
+    {
+      "question_id": "6.1.1_SCQ_1",
+      "question": "Which of the following is the primary function of the cuticle?",
+      "options": {
+        "A": "To absorb water",
+        "B": "To prevent water loss",
+        "C": "To perform photosynthesis",
+        "D": "To provide structural support"
+      },
+      "correct_option": "B",
+      "explanation": "The cuticle is a waxy thick layer on the outside of the epidermis that prevents the loss of water."
+    },
+    {
+      "question_id": "6.1.1_SCQ_2",
+      "question": "In grasses, what is the specific shape of the guard cells?",
+      "options": {
+        "A": "Bean-shaped",
+        "B": "Circular",
+        "C": "Dumb-bell shaped",
+        "D": "Irregular"
+      },
+      "correct_option": "C",
+      "explanation": "The text explicitly states that in grasses, the guard cells are dumb-bell shaped, unlike the bean-shaped ones found in other plants."
+    },
+    {
+      "question_id": "6.1.1_SCQ_3",
+      "question": "What are the epidermal hairs on the stem called?",
+      "options": {
+        "A": "Root hairs",
+        "B": "Stomata",
+        "C": "Subsidiary cells",
+        "D": "Trichomes"
+      },
+      "correct_option": "D",
+      "explanation": "The hairs on the epidermal layer of the stem are known as trichomes."
+    },
+    {
+      "question_id": "6.1.2_SCQ_4",
+      "question": "Which of the following tissues is NOT considered a part of the ground tissue?",
+      "options": {
+        "A": "Parenchyma",
+        "B": "Epidermis",
+        "C": "Collenchyma",
+        "D": "Sclerenchyma"
+      },
+      "correct_option": "B",
+      "explanation": "The ground tissue is defined as all tissues except the epidermis and the vascular bundles."
+    },
+    {
+      "question_id": "6.1.2_SCQ_5",
+      "question": "In leaves, the ground tissue is specialized and called:",
+      "options": {
+        "A": "Cortex",
+        "B": "Pith",
+        "C": "Mesophyll",
+        "D": "Pericycle"
+      },
+      "correct_option": "C",
+      "explanation": "The ground tissue in leaves, which contains chloroplasts for photosynthesis, is known as mesophyll."
+    }
+  ],
+  "multiple_correct_mcq": [
+    {
+      "question_id": "6.1.1_MCQ_1",
+      "question": "The stomatal apparatus is composed of which of the following components?",
+      "options": {
+        "A": "Guard cells",
+        "B": "Stomatal aperture",
+        "C": "Subsidiary cells",
+        "D": "Cuticle"
+      },
+      "correct_options": ["A", "B", "C"],
+      "explanation": "The stomatal apparatus is a collective term for the stomatal aperture (pore), the guard cells that enclose it, and the surrounding subsidiary cells."
+    },
+    {
+      "question_id": "6.1.1_MCQ_2",
+      "question": "Which of the following statements are true about trichomes?",
+      "options": {
+        "A": "They are always unicellular.",
+        "B": "They help in preventing water loss.",
+        "C": "They are found on the root system.",
+        "D": "They can be secretory in function."
+      },
+      "correct_options": ["B", "D"],
+      "explanation": "Trichomes are found on the shoot system, are usually multicellular, help prevent water loss from transpiration, and may also be secretory."
+    },
+    {
+      "question_id": "6.1.1_MCQ_3",
+      "question": "Which characteristics apply to epidermal cells?",
+      "options": {
+        "A": "They form a continuous, single layer.",
+        "B": "They have a large amount of cytoplasm.",
+        "C": "They are parenchymatous.",
+        "D": "They possess a large vacuole."
+      },
+      "correct_options": ["A", "C", "D"],
+      "explanation": "Epidermal cells are parenchymatous, form a continuous layer, have a large vacuole, and contain only a small amount of cytoplasm lining the cell wall."
+    },
+    {
+      "question_id": "6.1.2_MCQ_4",
+      "question": "Ground tissue is found in which of the following parts of primary stems and roots?",
+      "options": {
+        "A": "Cortex",
+        "B": "Pericycle",
+        "C": "Pith",
+        "D": "Epidermis"
+      },
+      "correct_options": ["A", "B", "C"],
+      "explanation": "Parenchymatous cells, which are part of the ground tissue, are typically found in the cortex, pericycle, pith, and medullary rays of primary stems and roots."
+    },
+    {
+      "question_id": "6.1.1_MCQ_5",
+      "question": "Which of the following are functions of the epidermal tissue system?",
+      "options": {
+        "A": "Regulation of gaseous exchange",
+        "B": "Absorption of water and minerals",
+        "C": "Prevention of water loss",
+        "D": "Conduction of food"
+      },
+      "correct_options": ["A", "B", "C"],
+      "explanation": "The epidermal tissue system regulates gas exchange via stomata, absorbs water and minerals through root hairs, and prevents water loss via the cuticle and trichomes. Food conduction is a function of the vascular tissue (phloem)."
+    }
+  ],
+  "answer_in_one_sentence": [
+    {
+      "question_id": "6.1.1_AOS_1",
+      "question": "What is the primary function of stomata?",
+      "answer": "Stomata regulate the process of transpiration and gaseous exchange in the epidermis of leaves."
+    },
+    {
+      "question_id": "6.1.1_AOS_2",
+      "question": "What are root hairs?",
+      "answer": "Root hairs are unicellular elongations of the epidermal cells that help absorb water and minerals from the soil."
+    },
+    {
+      "question_id": "6.1.2_AOS_3",
+      "question": "What constitutes the ground tissue in a plant?",
+      "answer": "The ground tissue is constituted by all tissues within a plant except for the epidermis and the vascular bundles."
+    },
+    {
+      "question_id": "6.1.1_AOS_4",
+      "question": "What are subsidiary cells?",
+      "answer": "Subsidiary cells are specialized epidermal cells located in the vicinity of the guard cells, differing in shape and size."
+    },
+    {
+      "question_id": "6.1.2_AOS_5",
+      "question": "What is mesophyll?",
+      "answer": "Mesophyll is the ground tissue found in leaves, which consists of thin-walled cells containing chloroplasts."
+    }
+  ],
+  "fill_in_the_blanks": [
+    {
+      "question_id": "6.1.1_FIB_1",
+      "question": "The outer walls of guard cells are thin and the inner walls are highly ___________.",
+      "answer": "thickened"
+    },
+    {
+      "question_id": "6.1.1_FIB_2",
+      "question": "The waxy layer called the cuticle is absent in ___________.",
+      "answer": "roots"
+    },
+    {
+      "question_id": "6.1.1_FIB_3",
+      "question": "The trichomes in the shoot system are usually ___________.",
+      "answer": "multicellular"
+    },
+    {
+      "question_id": "6.1.2_FIB_4",
+      "question": "Ground tissue consists of simple tissues such as parenchyma, collenchyma and ___________.",
+      "answer": "sclerenchyma"
+    },
+    {
+      "question_id": "6.1.1_FIB_5",
+      "question": "The guard cells possess chloroplasts and regulate the opening and closing of ___________.",
+      "answer": "stomata"
+    }
+  ],
+  "answer_in_brief": [
+    {
+      "question_id": "6.1.1_AB_1",
+      "question": "Describe the structure and function of guard cells.",
+      "answer": "Guard cells are specialized, bean-shaped (or dumb-bell shaped in grasses) cells that enclose a stomatal pore. Their inner walls, facing the pore, are thick, while the outer walls are thin. They contain chloroplasts and are responsible for regulating the opening and closing of the stoma. This regulation controls the process of gaseous exchange and transpiration for the plant.",
+      "key_points": [
+        "Bean-shaped or dumb-bell shaped cells",
+        "Enclose stomatal pore",
+        "Thick inner walls and thin outer walls",
+        "Contain chloroplasts",
+        "Regulate stomatal opening/closing for gas exchange and transpiration"
+      ]
+    },
+    {
+      "question_id": "6.1.1_AB_2",
+      "question": "Differentiate between root hairs and trichomes.",
+      "answer": "Root hairs and trichomes are both outgrowths of the epidermis, but they differ in location, structure, and function. Root hairs are found on roots, are always unicellular, and their primary function is to absorb water and minerals from the soil. In contrast, trichomes are found on the shoot system (stem), are usually multicellular, and they primarily help in preventing water loss through transpiration.",
+      "key_points": [
+        "Root hairs on roots, trichomes on shoot system",
+        "Root hairs are unicellular, trichomes are usually multicellular",
+        "Root hairs absorb water and minerals",
+        "Trichomes prevent water loss"
+      ]
+    },
+    {
+      "question_id": "6.1.1_AB_3",
+      "question": "What are the key characteristics of the epidermis?",
+      "answer": "The epidermis is the outermost layer of the primary plant body. It is typically a single, continuous layer of elongated, compactly arranged cells. These cells are parenchymatous in nature, containing a large central vacuole and a thin lining of cytoplasm. The outer surface is often covered by a waxy cuticle to prevent water loss, except in roots.",
+      "key_points": [
+        "Outermost, single, continuous layer",
+        "Elongated, compactly arranged cells",
+        "Parenchymatous with a large vacuole",
+        "Often covered by a waxy cuticle",
+        "Forms the outer covering of the whole plant body"
+      ]
+    },
+    {
+      "question_id": "6.1.2_AB_4",
+      "question": "Explain the composition of ground tissue.",
+      "answer": "Ground tissue encompasses all plant tissues other than the epidermis and vascular bundles. It is fundamentally composed of simple tissues. The three types of simple tissues that constitute the ground tissue are parenchyma, collenchyma, and sclerenchyma. In primary stems and roots, these tissues are found in areas like the cortex and pith, while in leaves, the ground tissue is specialized into mesophyll.",
+      "key_points": [
+        "All tissues except epidermis and vascular bundles",
+        "Consists of simple tissues",
+        "Includes parenchyma, collenchyma, and sclerenchyma",
+        "Forms cortex and pith in stems/roots",
+        "Specialized as mesophyll in leaves"
+      ]
+    },
+    {
+      "question_id": "6.1.1_AB_5",
+      "question": "What is the stomatal apparatus and what is its role?",
+      "answer": "The stomatal apparatus is the microscopic structure in the leaf epidermis responsible for controlling gas exchange. It consists of three main parts: the stomatal aperture (the actual pore), the two guard cells that surround and control the size of the pore, and the neighboring subsidiary cells which are specialized epidermal cells. Together, these components work to regulate the opening and closing of the pore, thereby controlling transpiration and the exchange of gases like carbon dioxide and oxygen.",
+      "key_points": [
+        "Comprises stomatal aperture, guard cells, and subsidiary cells",
+        "Located in the leaf epidermis",
+        "Guard cells control the opening and closing of the pore",
+        "Subsidiary cells support the guard cells",
+        "Regulates transpiration and gaseous exchange"
+      ]
+    }
+  ],
+  "answer_in_detail": [
+    {
+      "question_id": "6.1.1_AD_1",
+      "question": "Explain the components and functions of the epidermal tissue system in plants.",
+      "answer": "The epidermal tissue system serves as the outermost protective covering for the entire primary plant body. It is a crucial interface between the plant and its environment. This system is composed of three main components: epidermal cells, stomata, and epidermal appendages. The epidermal cells themselves are elongated, compactly arranged parenchymatous cells that form a continuous layer, providing a primary barrier. Often, these cells secrete a waxy cuticle on their outer surface, which is vital for preventing water loss. The second component, stomata, are pores in the epidermis, each flanked by two specialized guard cells. These structures are essential for regulating gaseous exchange (CO2 in, O2 out) and transpiration. The final components are epidermal appendages, which include root hairs and trichomes. Root hairs are unicellular extensions that drastically increase the surface area for water and mineral absorption from the soil. Trichomes, found on the shoot system, are typically multicellular and help reduce water loss, and can sometimes be secretory or protective.",
+      "key_points": [
+        "Forms the outermost protective covering of the plant body.",
+        "Comprises epidermal cells, stomata, and epidermal appendages (trichomes and root hairs).",
+        "Epidermal cells are compactly arranged and often have a waxy cuticle to prevent water loss.",
+        "Stomata, consisting of guard cells, regulate gas exchange and transpiration.",
+        "Root hairs are unicellular and function in water/mineral absorption.",
+        "Trichomes are multicellular and help prevent water loss from the shoot system.",
+        "Overall functions include protection, regulation of water, and gas exchange."
+      ]
+    },
+    {
+      "question_id": "6.1.1_AD_2",
+      "question": "Describe the structure of a stoma in detail, including the features of its guard cells and its relationship with subsidiary cells.",
+      "answer": "A stoma is a minute pore found in the epidermis of leaves, crucial for regulating gas exchange. Each stoma is primarily composed of two specialized, bean-shaped cells known as guard cells, which enclose the central opening called the stomatal pore. In monocots like grasses, these guard cells have a distinct dumb-bell shape. A key structural feature of guard cells is the differential thickening of their walls; the inner walls adjacent to the stomatal pore are highly thickened and inelastic, while the outer walls are thin and elastic. This feature is critical for the mechanism of opening and closing. Guard cells are also unique among epidermal cells as they contain chloroplasts and can perform photosynthesis. In many plants, the guard cells are surrounded by a few specialized epidermal cells called subsidiary cells. These cells differ in shape and size from other epidermal cells and are considered part of the overall stomatal apparatus, which includes the stomatal aperture, guard cells, and the subsidiary cells.",
+      "key_points": [
+        "A stoma is a pore in the epidermis enclosed by two guard cells.",
+        "Guard cells are bean-shaped in dicots and dumb-bell shaped in grasses.",
+        "Inner walls of guard cells are thick; outer walls are thin.",
+        "Differential wall thickness facilitates opening and closing.",
+        "Guard cells contain chloroplasts.",
+        "Subsidiary cells are specialized epidermal cells surrounding the guard cells.",
+        "The entire unit is called the stomatal apparatus."
+      ]
+    },
+    {
+      "question_id": "6.1.2_AD_3",
+      "question": "What is ground tissue, and where is it located in different parts of the plant as described in the text?",
+      "answer": "The ground tissue system includes all the tissues of a plant that are not part of the epidermal tissue system or the vascular tissue system. It forms the bulk of the plant body and carries out a variety of functions, including photosynthesis, storage, and support. The ground tissue is primarily composed of three types of simple tissues: parenchyma, collenchyma, and sclerenchyma. The location of these tissues varies depending on the plant organ. In primary stems and roots, parenchymatous cells of the ground tissue are commonly found in several distinct regions. These include the cortex (the region just inside the epidermis), the pericycle, the pith (the central core of the stem), and the medullary rays (bands of parenchyma extending from the pith to the cortex). In leaves, the ground tissue is specialized and is referred to as mesophyll. The mesophyll consists of thin-walled, chloroplast-containing parenchyma cells and is the primary site of photosynthesis.",
+      "key_points": [
+        "Ground tissue is all tissue except epidermis and vascular bundles.",
+        "It is composed of simple tissues: parenchyma, collenchyma, and sclerenchyma.",
+        "In primary stems and roots, it is found in the cortex, pericycle, pith, and medullary rays.",
+        "It forms the bulk of the plant body.",
+        "In leaves, the ground tissue is specialized into chloroplast-containing cells called mesophyll.",
+        "Mesophyll is the primary site of photosynthesis."
+      ]
+    },
+    {
+      "question_id": "6.1.1_AD_4",
+      "question": "Explain the different ways the epidermal tissue system helps in managing water for the plant.",
+      "answer": "The epidermal tissue system employs several specialized structures to manage the plant's water balance, both by preventing its loss and facilitating its uptake. The most significant adaptation for preventing water loss is the cuticle, a waxy, thick layer that covers the outside of the epidermis on aerial parts of the plant. This waxy coating is hydrophobic, creating a barrier that significantly reduces evaporative water loss directly from the surface of epidermal cells. Another feature, the trichomes, which are hair-like outgrowths on the stem and leaves, also help in this regard. They can trap a layer of still air close to the leaf surface, which increases humidity and reduces the rate of transpiration. While preventing water loss is key, the system also regulates necessary water vapor release through stomata, a process called transpiration. Conversely, the epidermal system is also responsible for water uptake. In the roots, which lack a cuticle, specialized epidermal cells elongate to form root hairs. These unicellular structures vastly increase the root's surface area, maximizing the efficiency of water and mineral absorption from the soil.",
+      "key_points": [
+        "The waxy cuticle on the epidermis prevents evaporative water loss.",
+        "Trichomes on the shoot system help reduce transpiration by trapping humid air.",
+        "Stomata regulate transpiration, the controlled loss of water vapor.",
+        "Root hairs are epidermal extensions that increase surface area for water absorption.",
+        "The epidermis of roots lacks a cuticle, which facilitates water uptake.",
+        "The system balances water retention, controlled release, and absorption."
+      ]
+    },
+    {
+      "question_id": "6.1.1_AD_5",
+      "question": "Based on the text, compare and contrast the epidermal appendages: root hairs and trichomes.",
+      "answer": "Root hairs and trichomes are both outgrowths, or appendages, of the epidermal tissue system, but they exhibit key differences in their location, structure, and primary functions. The most obvious distinction is their location: root hairs are found exclusively on the roots of a plant, while trichomes are located on the shoot system, which includes the stem and leaves. Structurally, root hairs are described as unicellular elongations of epidermal cells, meaning each hair is a single, elongated cell. In contrast, trichomes are usually multicellular structures, which can be branched or unbranched, and may feel soft or stiff. Functionally, their roles are almost opposite in relation to water management. The primary function of root hairs is absorption; they dramatically increase the surface area of the root to efficiently absorb water and minerals from the soil. Trichomes, on the other hand, are primarily defensive and protective; they help in preventing water loss due to transpiration. The text also notes that trichomes may even be secretory, a function not attributed to root hairs.",
+      "key_points": [
+        "Location: Root hairs are on roots; trichomes are on the shoot system.",
+        "Structure: Root hairs are unicellular; trichomes are usually multicellular.",
+        "Trichomes can be branched or unbranched, soft or stiff.",
+        "Primary Function (Root Hairs): Absorption of water and minerals from the soil.",
+        "Primary Function (Trichomes): Preventing water loss via transpiration.",
+        "Additional Function: Trichomes can be secretory, whereas root hairs are not.",
+        "Both are outgrowths of the epidermal tissue system."
+      ]
+    }
+  ]
+}
