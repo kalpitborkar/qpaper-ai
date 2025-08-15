@@ -231,14 +231,7 @@ def add_written(qs, lines=2):
         ]))
         block = [question_table]
 
-        # Answer lines for student copy
-        for _ in range(lines):
-            block.append(Spacer(1, 0.25 * inch))
-            block.append(Table([[""]], colWidths=[doc.width],
-                               style=TableStyle([
-                                   ('LINEBELOW', (0, 0), (-1, -1), 0.25, colors.HexColor("#AAAAAA")),
-                                   ('LINESTYLE', (0, 0), (-1, -1), 'dotted')
-                               ])))
+        # ✅ Removed dotted writing lines
 
         # Answer text (teacher copy)
         ans = q.get("answer")
