@@ -138,8 +138,35 @@ instruction_table.setStyle(TableStyle([
 elements.append(instruction_table)
 elements.append(PageBreak())
 
-# -------- Question Helpers --------
+# -------- Helpers --------
 q_number = 1
+
+def info_box(title_html, body_html, border_color, bg_hex):
+    """Reusable stylized info box."""
+    box = Table([[Paragraph(f"<b>{title_html}</b><br/>{body_html}", styles['Instruction'])]],
+                colWidths=[doc.width])
+    box.setStyle(TableStyle([
+        ('BOX', (0, 0), (-1, -1), 1, border_color),
+        ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor(bg_hex)),
+        ('INNERPADDING', (0, 0), (-1, -1), 6),
+    ]))
+    return box
+
+def normalize_text(value):
+    """Accept str / list / dict and return clean HTML-safe string."""
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        return "<br/>".join(f"• {str(v)}" for v in value)
+    if isinstance(value, dict):
+        # e.g., {"NCERT Ch 13": "pg 212", "URL": "..."}
+        lines = []
+        for k, v in value.items():
+            lines.append(f"{k}: {v}")
+        return "<br/>".join(lines)
+    return str(value)
 
 def add_section(title):
     elements.append(Spacer(1, 0.2 * inch))
@@ -185,6 +212,7 @@ def add_mcq(qs):
         ]))
         block.append(opt_table)
 
+        # Answers
         ans_text = ""
         if "answers" in q:
             ans_text = ", ".join(f"{k}: {v}" for k, v in q["answers"].items())
@@ -192,26 +220,32 @@ def add_mcq(qs):
             ans_text = ", ".join(q["correct_options"])
         elif "correct_option" in q:
             ans_text = q["correct_option"]
-
         block.append(Paragraph(f"Answer: {ans_text}", styles['Answer']))
 
-        # Add explanation if provided
+        # Explanation
         if q.get("explanation"):
-            exp_table = Table([[Paragraph(f"<b>Explanation:</b><br/>{q['explanation']}", styles['Instruction'])]],
-                            colWidths=[doc.width])
-            exp_table.setStyle(TableStyle([
-                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#003366")),
-                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#E6F0FF")),
-                ('INNERPADDING', (0, 0), (-1, -1), 6),
-            ]))
             block.append(Spacer(1, 0.05 * inch))
-            block.append(exp_table)
+            block.append(info_box("Explanation:", normalize_text(q["explanation"]),
+                                  colors.HexColor("#003366"), "#E6F0FF"))
+
+        # Difficulty Reasoning (now always included when present)
+        if q.get("difficulty_reasoning"):
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(info_box("Difficulty Reasoning:",
+                                  normalize_text(q["difficulty_reasoning"]),
+                                  colors.orange, "#FFF4E6"))
+
+        # Citation (now always included when present)
+        if q.get("citation"):
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(info_box("Citation:",
+                                  normalize_text(q["citation"]),
+                                  colors.green, "#E6FFE6"))
 
         block.append(Spacer(1, 0.12 * inch))
         elements.append(KeepTogether(block))
         bg_toggle = not bg_toggle
         q_number += 1
-
 
 def add_written(qs, lines=2):
     global q_number
@@ -231,8 +265,6 @@ def add_written(qs, lines=2):
         ]))
         block = [question_table]
 
-        # ✅ Removed dotted writing lines
-
         # Answer text (teacher copy)
         ans = q.get("answer")
         if isinstance(ans, list):
@@ -242,36 +274,35 @@ def add_written(qs, lines=2):
 
         # Key Points block
         if q.get("key_points"):
-            key_points_text = "<br/>".join([f"• {kp}" for kp in q["key_points"]])
-            kp_table = Table([[Paragraph(f"<b>Key Points:</b><br/>{key_points_text}", styles['Instruction'])]],
-                             colWidths=[doc.width])
-            kp_table.setStyle(TableStyle([
-                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#003366")),
-                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#E6F0FF")),
-                ('INNERPADDING', (0, 0), (-1, -1), 6),
-            ]))
+            key_points_text = "<br/>".join([f"• {kp}" for kp in q["key_points"]]) if isinstance(q["key_points"], list) else normalize_text(q["key_points"])
             block.append(Spacer(1, 0.05 * inch))
-            block.append(kp_table)
+            block.append(info_box("Key Points:", key_points_text,
+                                  colors.HexColor("#003366"), "#E6F0FF"))
 
         # Explanation block
         if q.get("explanation"):
-            exp_table = Table([[Paragraph(f"<b>Explanation:</b><br/>{q['explanation']}", styles['Instruction'])]],
-                              colWidths=[doc.width])
-            exp_table.setStyle(TableStyle([
-                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#003366")),
-                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#E6F0FF")),
-                ('INNERPADDING', (0, 0), (-1, -1), 6),
-            ]))
             block.append(Spacer(1, 0.05 * inch))
-            block.append(exp_table)
+            block.append(info_box("Explanation:", normalize_text(q["explanation"]),
+                                  colors.HexColor("#003366"), "#E6F0FF"))
+
+        # NEW: Difficulty Reasoning block
+        if q.get("difficulty_reasoning"):
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(info_box("Difficulty Reasoning:",
+                                  normalize_text(q["difficulty_reasoning"]),
+                                  colors.orange, "#FFF4E6"))
+
+        # NEW: Citation block
+        if q.get("citation"):
+            block.append(Spacer(1, 0.05 * inch))
+            block.append(info_box("Citation:",
+                                  normalize_text(q["citation"]),
+                                  colors.green, "#E6FFE6"))
 
         block.append(Spacer(1, 0.15 * inch))
         elements.append(KeepTogether(block))
         bg_toggle = not bg_toggle
         q_number += 1
-
-
-
 
 # -------- Build Sections --------
 if "single_correct_mcq" in data:
@@ -295,4 +326,4 @@ if "answer_in_detail" in data:
 
 # -------- Generate PDF --------
 doc.build(elements, onFirstPage=header_footer, onLaterPages=header_footer)
-print("✅ Teacher’s Copy generated: question_paper.pdf")
+print("✅ Teacher’s Copy generated: question_paper_with_answers.pdf")
